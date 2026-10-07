@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>NEXO local</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<main class="contenedor">
+    <header class="encabezado">
+        <div><span class="eyebrow">NEXO / Equipo local</span><h1>Levantamiento offline</h1><p>Registre visitas sin Internet y sincronícelas después.</p></div>
+        <span id="equipo-label" class="equipo-label">Equipo sin configurar</span>
+    </header>
+
+    <section class="panel">
+        <div class="panel-titulo"><div><h2>Nueva visita</h2><p>Los datos se guardan en una carpeta independiente.</p></div></div>
+        <form id="visita-form">
+            <div class="grid">
+                <label>Institución<input name="institucion" required></label>
+                <label>Estado<input name="estado" required></label>
+                <label>Ciudad<input name="ciudad" required></label>
+                <label>Fecha<input type="date" name="fecha_visita" required></label>
+                <label class="ancho-completo">Observaciones<textarea name="observaciones" rows="3"></textarea></label>
+                <label class="ancho-completo">Archivos<input type="file" name="archivos" multiple></label>
+            </div>
+            <div class="acciones"><button class="principal" type="submit">Guardar visita local</button><span id="mensaje" role="status"></span></div>
+        </form>
+    </section>
+
+    <section class="panel">
+        <div class="panel-titulo"><div><h2>Visitas locales</h2><p id="resumen">Cargando...</p></div><button id="actualizar" class="secundario" type="button">Actualizar</button></div>
+        <div id="lista" class="lista"></div>
+    </section>
+
+    <section class="panel configuracion">
+        <div class="panel-titulo"><div><h2>Configuración del equipo</h2><p>Estos datos identifican la instalación local.</p></div></div>
+        <form id="equipo-form" class="config-form"><label>ID del equipo<input name="equipo_id" required></label><label>Nombre del equipo<input name="equipo_nombre" required></label><label>Servidor para sincronizar<input name="servidor" placeholder="https://servidor/levantamiento"></label><button class="secundario" type="submit">Guardar configuración</button></form>
+    </section>
+</main>
+<script src="app.js"></script>
+</body>
+</html>
